@@ -12,7 +12,7 @@ pages_build_output_dir = "."
 [[d1_databases]]
 binding = "DB"                                  # 代码里通过 env.DB 访问，不要改名
 database_name = "personal-site-db"              # 【可替换】D1 数据库名称
-database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID" # 【可替换】wrangler d1 create 后返回的 id
+database_id = "f65fa869-d99f-4789-af72-4274a7a1f64f" # 已创建：personal-site-db
 
 # ---------- 普通环境变量（非敏感）----------
 # 敏感变量（如 ADMIN_TOKEN）请到 Cloudflare Dashboard -> Pages -> Settings -> Environment variables 配置
