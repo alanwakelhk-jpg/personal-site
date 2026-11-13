@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="个人资源站 · 文章、照片、音乐与联系方式" />
+  <meta name="theme-color" content="#05070f" />
+  <title>个人资源站</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%2300e5ff'/><circle cx='50' cy='50' r='22' fill='%2305070f'/></svg>" />
+</head>
+<body>
+  <!-- 粒子背景画布 -->
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="bg-layer" aria-hidden="true"></div>
+
+  <!-- ============ 顶部导航 ============ -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a class="brand" href="#home">
+        <span class="brand-dot"></span>
+        <span class="brand-text" id="brandText">个人资源站</span>
+      </a>
+
+      <nav class="nav" id="mainNav">
+        <a href="#home" class="nav-link">首页</a>
+        <a href="#about" class="nav-link">关于</a>
+        <a href="#contact" class="nav-link">联系</a>
+        <a href="#music" class="nav-link">音乐</a>
+        <a href="#articles" class="nav-link">文章</a>
+        <a href="#gallery" class="nav-link">照片</a>
+        <a href="#messages" class="nav-link">留言</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="切换深色/浅色模式" title="切换深色/浅色模式">
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <button id="navToggle" class="icon-btn nav-toggle" type="button" aria-label="展开菜单">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ 首屏：照片滚动 ============ -->
+    <section id="home" class="hero">
+      <div class="carousel" id="carousel" aria-roledescription="轮播">
+        <div class="carousel-track" id="carouselTrack"></div>
+        <button class="carousel-arrow prev" id="carouselPrev" type="button" aria-label="上一张">‹</button>
+        <button class="carousel-arrow next" id="carouselNext" type="button" aria-label="下一张">›</button>
+        <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="轮播导航"></div>
+      </div>
+      <a class="scroll-hint" href="#about" aria-label="向下滚动">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- ============ 站长介绍 ============ -->
+    <section id="about" class="section">
+      <h2 class="section-title"><span>01</span> 关于站长</h2>
+      <div class="about-card glass reveal">
+        <div class="about-avatar">
+          <img id="ownerAvatar" src="" alt="站长头像" loading="lazy" />
+        </div>
+        <div class="about-body">
+          <h3 class="about-name" id="ownerName">站长昵称</h3>
+          <p class="about-title" id="ownerTitle">身份 / 头衔</p>
+          <p class="about-bio" id="ownerBio">简介占位</p>
+          <div class="tag-list" id="ownerSkills"></div>
+        </div>
+      </div>
+
+      <div class="resource-grid" id="resourceGrid"></div>
+    </section>
+
+    <!-- ============ 联系方式 ============ -->
+    <section id="contact" class="section">
+      <h2 class="section-title"><span>02</span> 联系方式</h2>
+      <div class="contact-grid" id="contactGrid"></div>
+      <p class="section-note">以上信息均可在 <code>js/config.js</code> 的 <code>contacts</code> 数组中替换。</p>
+    </section>
+
+    <!-- ============ 音乐播放 ============ -->
+    <section id="music" class="section">
+      <h2 class="section-title"><span>03</span> 听音乐</h2>
+      <div class="player glass reveal">
+        <div class="player-visual">
+          <div class="disc" id="disc">
+            <div class="disc-cover"><img id="trackCover" src="" alt="" /></div>
+          </div>
+          <div class="eq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+
+        <div class="player-main">
+          <div class="track-meta">
+            <h3 id="trackTitle">未选择曲目</h3>
+            <p id="trackArtist">—</p>
+          </div>
+
+          <div class="progress-row">
+            <span class="time" id="curTime">00:00</span>
+            <input class="range" id="seekBar" type="range" min="0" max="1000" value="0" step="1" aria-label="播放进度" />
+            <span class="time" id="durTime">00:00</span>
+          </div>
+
+          <div class="player-controls">
+            <button class="ctrl-btn" id="prevBtn" type="button" aria-label="上一首">
+              <svg viewBox="0 0 24 24"><path d="M7 5v14M20 5 9 12l11 7V5Z" fill="currentColor"/></svg>
+            </button>
+            <button class="ctrl-btn play" id="playBtn" type="button" aria-label="播放/暂停">
+              <svg class="ico-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5L8 5.5Z" fill="currentColor"/></svg>
+              <svg class="ico-pause" viewBox="0 0 24 24"><path d="M7 5h4v14H7zM13 5h4v14h-4z" fill="currentColor"/></svg>
+            </button>
+            <button class="ctrl-btn" id="nextBtn" type="button" aria-label="下一首">
+              <svg viewBox="0 0 24 24"><path d="M17 5v14M4 5l11 7L4 19V5Z" fill="currentColor"/></svg>
+            </button>
+            <div class="volume-box">
+              <svg class="vol-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z" fill="currentColor"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              <input class="range volume-range" id="volumeBar" type="range" min="0" max="100" value="80" step="1" aria-label="音量" />
+            </div>
+          </div>
+
+          <ul class="playlist" id="playlist"></ul>
+        </div>
+      </div>
+      <audio id="audio" preload="metadata"></audio>
+      <p class="section-note">曲目列表在 <code>js/config.js</code> 的 <code>playlist</code> 中配置，支持本地文件与音频直链。</p>
+    </section>
+
+    <!-- ============ 文章 ============ -->
+    <section id="articles" class="section">
+      <h2 class="section-title"><span>04</span> 文章</h2>
+      <div class="article-list" id="articleList"></div>
+      <div class="list-footer">
+        <p class="list-status" id="articleStatus"></p>
+        <button class="btn ghost" id="articleMore" type="button" hidden>加载更多</button>
+      </div>
+    </section>
+
+    <!-- ============ 照片墙 ============ -->
+    <section id="gallery" class="section">
+      <h2 class="section-title"><span>05</span> 照片墙</h2>
+      <div class="gallery-grid" id="galleryGrid"></div>
+      <p class="section-note">照片数据来自 <code>/api/photos</code>（D1 表 <code>photos</code>），接口不可用时回退到 <code>js/config.js</code> 的 <code>fallbackPhotos</code>。</p>
+    </section>
+
+    <!-- ============ 留言 ============ -->
+    <section id="messages" class="section">
+      <h2 class="section-title"><span>06</span> 留言板</h2>
+
+      <form class="message-form glass" id="messageForm" novalidate>
+        <div class="form-row">
+          <label for="msgNickname">昵称 <em>*</em></label>
+          <input id="msgNickname" name="nickname" type="text" maxlength="30" placeholder="怎么称呼你？" required />
+        </div>
+        <div class="form-row">
+          <label for="msgContact">联系方式（选填）</label>
+          <input id="msgContact" name="contact" type="text" maxlength="100" placeholder="邮箱 / QQ / TG，便于回复" />
+        </div>
+        <div class="form-row">
+          <label for="msgContent">留言内容 <em>*</em></label>
+          <textarea id="msgContent" name="content" rows="4" maxlength="500" placeholder="说点什么吧（2~500 字）" required></textarea>
+          <span class="counter" id="msgCounter">0 / 500</span>
+        </div>
+        <div class="form-actions">
+          <button class="btn primary" id="msgSubmit" type="submit">提交留言</button>
+          <span class="form-tip" id="msgTip"></span>
+        </div>
+      </form>
+
+      <div class="message-list" id="messageList"></div>
+      <div class="list-footer">
+        <p class="list-status" id="messageStatus"></p>
+        <button class="btn ghost" id="messageMore" type="button" hidden>加载更多</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ 页脚 ============ -->
+  <footer class="site-footer">
+    <p>
+      <span id="footerName">个人资源站</span> · 基于
+      <a href="https://pages.cloudflare.com/" target="_blank" rel="noopener noreferrer">Cloudflare Pages</a>
+      构建 · <span id="year"></span>
+    </p>
+    <p class="footer-sub">Powered by 原生 HTML / CSS / JavaScript + Cloudflare D1</p>
+  </footer>
+
+  <!-- ============ 图片放大预览 ============ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="图片预览" hidden>
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="关闭">×</button>
+    <button class="lightbox-arrow prev" id="lightboxPrev" type="button" aria-label="上一张">‹</button>
+    <figure class="lightbox-figure">
+      <img id="lightboxImg" src="" alt="" />
+      <figcaption id="lightboxCaption"></figcaption>
+    </figure>
+    <button class="lightbox-arrow next" id="lightboxNext" type="button" aria-label="下一张">›</button>
+  </div>
+
+  <!-- ============ 轻提示 ============ -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

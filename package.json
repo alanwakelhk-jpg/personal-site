@@ -1,0 +1,16 @@
+{
+  "name": "personal-resource-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Cloudflare Pages + D1 个人资源站（原生 HTML/CSS/JS）",
+  "scripts": {
+    "dev": "wrangler pages dev . --d1=DB --compatibility-date=2025-01-01",
+    "db:init": "wrangler d1 execute personal-site-db --file=./schema.sql --remote",
+    "db:init:local": "wrangler d1 execute personal-site-db --file=./schema.sql --local",
+    "deploy": "wrangler pages deploy . --project-name=personal-resource-site"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

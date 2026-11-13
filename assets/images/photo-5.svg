@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="bg5" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#12060f"/>
+      <stop offset="55%" stop-color="#3a0f2a"/>
+      <stop offset="100%" stop-color="#12060f"/>
+    </linearGradient>
+    <radialGradient id="glow5" cx="50%" cy="42%" r="62%">
+      <stop offset="0%" stop-color="#ff6b3d" stop-opacity="0.30"/>
+      <stop offset="60%" stop-color="#ff2d95" stop-opacity="0.10"/>
+      <stop offset="100%" stop-color="#12060f" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid5" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" fill="none" stroke="#ff6b3d" stroke-opacity="0.09" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg5)"/>
+  <rect width="1600" height="900" fill="url(#grid5)"/>
+  <rect width="1600" height="900" fill="url(#glow5)"/>
+  <circle cx="1000" cy="370" r="180" fill="none" stroke="#ff2d95" stroke-opacity="0.16" stroke-width="1.6"/><circle cx="1000" cy="370" r="300" fill="none" stroke="#ff2d95" stroke-opacity="0.13" stroke-width="1.6"/><circle cx="1000" cy="370" r="430" fill="none" stroke="#ff2d95" stroke-opacity="0.10" stroke-width="1.6"/><circle cx="1000" cy="370" r="560" fill="none" stroke="#ff2d95" stroke-opacity="0.07" stroke-width="1.6"/>
+  <line x1="120" y1="-50" x2="-140" y2="950" stroke="#ff6b3d" stroke-opacity="0.10" stroke-width="1.4"/><line x1="285" y1="-50" x2="25" y2="950" stroke="#ff6b3d" stroke-opacity="0.10" stroke-width="1.4"/><line x1="450" y1="-50" x2="190" y2="950" stroke="#ff6b3d" stroke-opacity="0.10" stroke-width="1.4"/><line x1="615" y1="-50" x2="355" y2="950" stroke="#ff6b3d" stroke-opacity="0.10" stroke-width="1.4"/><line x1="780" y1="-50" x2="520" y2="950" stroke="#ff6b3d" stroke-opacity="0.10" stroke-width="1.4"/><line x1="945" y1="-50" x2="685" y2="950" stroke="#ff6b3d" stroke-opacity="0.10" stroke-width="1.4"/><line x1="1110" y1="-50" x2="850" y2="950" stroke="#ff6b3d" stroke-opacity="0.10" stroke-width="1.4"/><line x1="1275" y1="-50" x2="1015" y2="950" stroke="#ff6b3d" stroke-opacity="0.10" stroke-width="1.4"/><line x1="1440" y1="-50" x2="1180" y2="950" stroke="#ff6b3d" stroke-opacity="0.10" stroke-width="1.4"/>
+  <circle cx="675" cy="574" r="1.6" fill="#ff2d95" fill-opacity="0.55"/><circle cx="576" cy="588" r="2.7" fill="#ff6b3d" fill-opacity="0.55"/><circle cx="462" cy="583" r="3.8" fill="#ff2d95" fill-opacity="0.55"/><circle cx="344" cy="554" r="4.9" fill="#ff6b3d" fill-opacity="0.55"/><circle cx="236" cy="502" r="1.6" fill="#ff2d95" fill-opacity="0.55"/><circle cx="528" cy="441" r="2.7" fill="#ff6b3d" fill-opacity="0.55"/><circle cx="468" cy="396" r="3.8" fill="#ff2d95" fill-opacity="0.55"/><circle cx="437" cy="337" r="4.9" fill="#ff6b3d" fill-opacity="0.55"/><circle cx="445" cy="267" r="1.6" fill="#ff2d95" fill-opacity="0.55"/><circle cx="497" cy="194" r="2.7" fill="#ff6b3d" fill-opacity="0.55"/><circle cx="706" cy="320" r="3.8" fill="#ff2d95" fill-opacity="0.55"/><circle cx="762" cy="274" r="4.9" fill="#ff6b3d" fill-opacity="0.55"/><circle cx="855" cy="237" r="1.6" fill="#ff2d95" fill-opacity="0.55"/><circle cx="979" cy="216" r="2.7" fill="#ff6b3d" fill-opacity="0.55"/><circle cx="1123" cy="217" r="3.8" fill="#ff2d95" fill-opacity="0.55"/><circle cx="980" cy="367" r="4.9" fill="#ff6b3d" fill-opacity="0.55"/><circle cx="1080" cy="378" r="1.6" fill="#ff2d95" fill-opacity="0.55"/><circle cx="1176" cy="412" r="2.7" fill="#ff6b3d" fill-opacity="0.55"/><circle cx="1256" cy="467" r="3.8" fill="#ff2d95" fill-opacity="0.55"/><circle cx="1306" cy="540" r="4.9" fill="#ff6b3d" fill-opacity="0.55"/><circle cx="996" cy="521" r="1.6" fill="#ff2d95" fill-opacity="0.55"/><circle cx="1010" cy="576" r="2.7" fill="#ff6b3d" fill-opacity="0.55"/><circle cx="986" cy="636" r="3.8" fill="#ff2d95" fill-opacity="0.55"/><circle cx="919" cy="696" r="4.9" fill="#ff6b3d" fill-opacity="0.55"/><circle cx="810" cy="747" r="1.6" fill="#ff2d95" fill-opacity="0.55"/><circle cx="733" cy="584" r="2.7" fill="#ff6b3d" fill-opacity="0.55"/>
+  <circle cx="1000" cy="370" r="7" fill="#ff6b3d" fill-opacity="0.85"/>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320">
+  <defs>
+    <linearGradient id="av" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#00e5ff"/>
+      <stop offset="55%" stop-color="#5f7dff"/>
+      <stop offset="100%" stop-color="#7c4dff"/>
+    </linearGradient>
+    <radialGradient id="avlight" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="320" height="320" fill="#07101f"/>
+  <rect width="320" height="320" fill="url(#av)"/>
+  <rect width="320" height="320" fill="url(#avlight)"/>
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="3">
+    <circle cx="160" cy="128" r="46"/>
+    <path d="M74 288c0-46 38-84 86-84s86 38 86 84"/>
+  </g>
+  <text x="160" y="300" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="26" font-weight="700" fill="#ffffff" fill-opacity="0.9">YOUR PHOTO</text>
+</svg>
