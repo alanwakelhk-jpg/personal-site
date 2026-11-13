@@ -19,3 +19,4 @@ database_id = "f65fa869-d99f-4789-af72-4274a7a1f64f" # 已创建：personal-site
 [vars]
 SITE_NAME = "个人资源站"
 ALLOWED_ORIGIN = "*"
+# redeploy trigger: ADMIN_TOKEN env var configured on Pages project
